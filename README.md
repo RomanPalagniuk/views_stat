@@ -13,7 +13,12 @@ git clone https://github.com/RomanPalagniuk/views_stat.git
 cd views_stat
 ```
 
-### 2. Налаштування змінних середовища
+### 2. Встановлення залежностей
+```sh
+npm install
+```
+
+### 3. Налаштування змінних середовища
 
 Створіть файл `.env` у корені проєкту (опціонально, але рекомендовано):
 
@@ -27,15 +32,15 @@ SYNC_INTERVAL=*/2 * * * *
 
 Переконайтеся, що ці значення співпадають із вашими у `docker-compose.yml`.
 
-### 3. Збірка та запуск стеку
+### 4. Збірка та запуск стеку
 
 ```sh
 docker-compose up --build
 ```
 
-Ця команда запустить всі сервіси: API, worker-и, Redis, RabbitMQ та PostgreSQL.
+Ця команда запустить всі сервіси: API, worker-и, Redis, RabbitMQ, pgAdmin та PostgreSQL.
 
-### 4. Тестування API
+### 5. Тестування API
 
 - **Відправити подію:**
   ```
@@ -52,7 +57,17 @@ docker-compose up --build
   GET http://localhost:3000/stats/123
   ```
 
-### 5. Перевірка коду лінтером (опціонально)
+- **Отримати тільки перегляди оголошення:**  
+  ```
+  GET http://localhost:3000/stats/123?metrics=ad_views
+  ```
+
+- **Отримати тільки перегляди номера телефону:**
+  ```
+  GET http://localhost:3000/stats/123?metrics=phone_views
+  ```
+
+### 6. Перевірка коду лінтером (опціонально)
 
 ```sh
 npx eslint src/
@@ -60,11 +75,7 @@ npx eslint src/
 
 ---
 
-## Примітки
-
-- Схема бази даних створюється автоматично при першому запуску.
-- Доступ до RabbitMQ Management UI: [http://localhost:15672](http://localhost:15672) (логін: `stats`, пароль: `securepass`).
-- Щоб скинути всі дані, виконайте:
+## Щоб скинути всі дані, виконайте:
   ```sh
   docker-compose down -v
   ```
