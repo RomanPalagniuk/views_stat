@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS auto_metrics (
+    auto_id BIGINT PRIMARY KEY,
+    ad_views BIGINT NOT NULL DEFAULT 0,
+    phone_views BIGINT NOT NULL DEFAULT 0,
+    updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);

@@ -1,0 +1,26 @@
+{
+  "name": "views_stat",
+  "version": "1.0.0",
+  "description": "Small Koajs API to keep statistic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^13.1.0",
+    "amqplib": "^0.10.8",
+    "ioredis": "^5.6.1",
+    "koa": "^3.0.0",
+    "koa-bodyparser": "^4.4.1",
+    "node-cron": "^4.1.0",
+    "pg": "^8.16.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "eslint": "^9.29.0",
+    "globals": "^16.2.0"
+  }
+}
